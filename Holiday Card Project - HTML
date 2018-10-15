@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<!--I learnt how to add images, how to apply basic CSS properties and that khan academy limits the images we can put into our websites-->
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Holiday card</title>
+        
+        <style>
+            
+        h1 {
+            color:red;
+            text-align:center; /*Centers text on line*/
+        }
+        
+        body {
+            background-color:rgb(19, 240, 52);
+        }
+        
+        p {
+            color:red;
+            font-family: Georgia, serif; /*Changes the font of the text to Georgia and if font can't be found, then changes the font to the default serif font*/
+        }
+        
+        </style>
+    </head>
+    <body>
+    
+        <h1>Merry Christmas!!!!</h1>
+        
+        <img src= "https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif" alt="Christmas Tree" width= "236">
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Gifts_xmas.jpg/300px-Gifts_xmas.jpg" alt="Christmas presents">
+        
+         <p><strong>May you be blessed with the most important gifts this Christmas. I consider friendship to be a gift, and your friendship is one of my most treasured gifts. Merry Christmas!</strong></p>
+        
+    </body>
+</html>
