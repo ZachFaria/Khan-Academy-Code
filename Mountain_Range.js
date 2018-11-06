@@ -1,19 +1,21 @@
 var sky = function () {
+    // Sky
     for (var i = 0; i < 100; i++){
-        fill(255, i * 1.7 + 30, i/30, 255);
+        fill(255, i*1.7 + 30, i/30, 255);
         noStroke();
-        rect(0, i * 2, 400, 2);
+        rect(0, i*2, 400, 2);
     }
     
     for (var i = 0; i < 100; i++){
         noStroke();
-        fill(255 - i * 1.4, 30 - i, i * 1.4, i * 2);
-        rect(i * 4, 0, 4, 200);
+        fill(255 - i*1.4, 30 - i, i*1.4, i*2);
+        rect(i*4, 0, 4, 200);
     }
     
+    // Clouds
     var cloudHeight = 260;
     
-    var colorX= 0;
+    var colorX = 0;
     for (var i = 0; i < 200; i++){
         var colorY = 0;
         for (var j = 0; j < cloudHeight/3; j++) {
@@ -27,7 +29,8 @@ var sky = function () {
         colorX += -0.08;
     }
 };
-    
+
+// Mountain
 var drawRange = function(length, shape, posY, red) {
     var incAmount = 0.01;
     for (var t = 0; t < incAmount*width; t += incAmount) {
@@ -42,9 +45,9 @@ var generator = new Random(1);
 var standardDeviation = 2;
 var mean = 0;
 
-var Bird = function() {
+var Bird = function(h) {
     this.x = 0;
-    this.y = height/2;
+    this.y = h;
 };
 
 Bird.prototype.display = function() {
@@ -74,6 +77,8 @@ draw = function() {
     drawRange(196, 1.94, 320, 119);
     drawRange(200, 1.89, 372, 183);
     drawRange(198, 2.64, 421, 236);
-    bird.fly();
+    for (var i = 0; i < 10; i++) {
+        bird.fly(random(height/1.5));
+    }
     bird.display();
 };
