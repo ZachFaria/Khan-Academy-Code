@@ -1,3 +1,5 @@
+/*To create a mountain range using perlin noise*/
+
 var sky = function () {
     // Sky
     for (var i = 0; i < 100; i++){
@@ -31,45 +33,21 @@ var sky = function () {
 };
 
 // Mountain
-var drawRange = function(length, shape, posY, red) {
+var drawRange = function(length, shape, yPos, red) {
     var incAmount = 0.01;
     for (var t = 0; t < incAmount*width; t += incAmount) {
-        var n = noise(t*shape + posY);
+        var n = noise(t*shape + yPos);
         var y = map(n, 0, 1, 0, height/2);
         stroke(255, y, red);
-        rect(t*length, posY - y, 1, y + 30);
+        rect(t*length, yPos - y, 1, y + 30);
     }
 };
 
-var generator = new Random(1);
-var standardDeviation = 2;
-var mean = 0;
-
-var Bird = function(h) {
-    this.x = 0;
-    this.y = h;
-};
-
-Bird.prototype.display = function() {
-    strokeWeight(3);
-    stroke(0, 0, 0);
-    point(this.x, this.y);
-};
-
-Bird.prototype.fly = function() {
-    var y = generator.nextGaussian();
-    
-    var yFlightDistance = standardDeviation * y + mean;
-    
-    this.x += 20;
-    this.y += y;
-    
-    if (this.x > 400) {
-        this.x = -100;
-    }
-};
-
-var bird = new Bird();
+// Birds
+var x1 = random (-25, 0);
+var x2 = random (-25, 0);
+var y1 = random(100, 300);
+var y2 = random(100, 300);
 
 draw = function() {
     sky();
@@ -77,8 +55,23 @@ draw = function() {
     drawRange(196, 1.94, 320, 119);
     drawRange(200, 1.89, 372, 183);
     drawRange(198, 2.64, 421, 236);
-    for (var i = 0; i < 10; i++) {
-        bird.fly(random(height/1.5));
+    
+    // Birds
+    var speed1 = random(5);
+    var speed2 = random(5);
+    strokeWeight(2.5);
+    stroke(0, 0, 0);
+    point(x1, y1);
+    point(x2, y2);
+    x1 += speed1;
+    x2 += speed2;
+    y1 += random(-3, 3);
+    y2 += random(-3, 3);
+    
+    if (x1 > 450) {
+        x1 = random(-25, 0);
     }
-    bird.display();
+    else if (x2 > 450) {
+        x2 = random(-25, 0);
+    }
 };
