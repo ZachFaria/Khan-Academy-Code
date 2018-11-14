@@ -15,11 +15,11 @@ var sky = function () {
     }
     
     // Clouds
-    var cloudHeight = 260;
+    var cloudHeight = 175;
     
-    var colorX = 0;
+    var colorX = 0; // Starting colour for x
     for (var i = 0; i < 200; i++){
-        var colorY = 0;
+        var colorY = 0; // Starting colour for y
         for (var j = 0; j < cloudHeight/3; j++) {
             noStroke();
             var column = map(noise(colorX, colorY), 0, 1, 0, 260);
