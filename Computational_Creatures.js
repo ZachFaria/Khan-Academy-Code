@@ -72,20 +72,15 @@ var Predator = function() {
 
 // Updates the position of the predator
 Predator.prototype.update = function(preyPos) {
-    // Biggest possible PVector that fits in the canvas
-    var maxDir = new PVector(width, height);
-    // Magnitude of that vector
-    var maxMag = maxDir.mag();
     // Determines the direction based on the position of the designated prey
     var dir = PVector.sub(preyPos, this.position);
-    var closeness = (maxMag - dir.mag())/maxMag;
     dir.normalize();
-    dir.mult(closeness);
+    dir.mult(0.1);
     
     this.acceleration = dir;
     this.velocity.add(this.acceleration);
     // Max velocity set to 1 for easier movement behaviour tracking
-    this.velocity.limit(1);
+    this.velocity.limit(2);
     this.position.add(this.velocity);
 };
 
